@@ -4,5 +4,5 @@ if (temperature > 30):
     print('aagh')
 if (temperature < 0):
     print('too cold')
-if (temperature > 0):
+else:
     print('too cold')

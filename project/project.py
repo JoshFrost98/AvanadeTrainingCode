@@ -9,6 +9,7 @@ import sys
 from os import system
 import operator
 import time
+import random
 
 ops = {
     '+' : operator.add,
@@ -51,7 +52,7 @@ def calc():
     input('press any key')
     system('cls')  # clears stdout
 
-def foobar(i):
+def fb(i):
     if i % 3 == 0 and i % 5 == 0:
         return 'foobar'
     if i % 3 == 0:
@@ -60,21 +61,25 @@ def foobar(i):
         return 'bar'
     return i
 
-def foobaropt():
+def foobar():
     print("you have selected foobar") # Simulate function output.
     max = int(input("Enter the number you wish to generate foobar up to:  "))
     timestep = float(input('Enter the number of seconds between each subsequent generation:  '))
     for i in range(max):
-        print(foobar(i))
+        print(fb(i))
         time.sleep(timestep)
 
 
     system('cls')  # clears stdout
 
 
-def three():
-    print("you have selected menu option three") # Simulate function output.
-    input("Press Enter to Continue\n")
+def compliments():
+    comps = ['You have a lovely smile', 'Thats a great hairstyle', 'I wish I was as articulate as you,']
+    print("you have selected the compliment generator") # Simulate function output.
+    name = input("Please input your name")
+    index = random.randint(0,2)
+    print(comps[index], name)
+    input()
     system('cls')  # clears stdout
 
 
@@ -85,10 +90,8 @@ def exit():
 
 
 def main():
-    # Create a menu dictionary where the key is an integer number and the
-    # value is a function name.
     system('cls')
-    functions_names = [calc, foobaropt, three, exit]
+    functions_names = [calc, foobar, compliments, exit]
     menu_items = dict(enumerate(functions_names, start=1))
 
     while True:

@@ -8,6 +8,7 @@
 import sys
 from os import system
 import operator
+import time
 
 ops = {
     '+' : operator.add,
@@ -50,10 +51,24 @@ def calc():
     input('press any key')
     system('cls')  # clears stdout
 
+def foobar(i):
+    if i % 3 == 0 and i % 5 == 0:
+        return 'foobar'
+    if i % 3 == 0:
+        return 'foo'
+    if i % 5 == 0:
+        return 'bar'
+    return i
 
-def two():
-    print("you have selected menu option two") # Simulate function output.
-    input("Press Enter to Continue\n")
+def foobaropt():
+    print("you have selected foobar") # Simulate function output.
+    max = int(input("Enter the number you wish to generate foobar up to:  "))
+    timestep = float(input('Enter the number of seconds between each subsequent generation:  '))
+    for i in range(max):
+        print(foobar(i))
+        time.sleep(timestep)
+
+
     system('cls')  # clears stdout
 
 
@@ -73,7 +88,7 @@ def main():
     # Create a menu dictionary where the key is an integer number and the
     # value is a function name.
     system('cls')
-    functions_names = [calc, two, three, exit]
+    functions_names = [calc, foobaropt, three, exit]
     menu_items = dict(enumerate(functions_names, start=1))
 
     while True:

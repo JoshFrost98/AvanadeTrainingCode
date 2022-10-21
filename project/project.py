@@ -70,6 +70,8 @@ def foobar():
     for i in range(max):
         print(fb(i, j, k))
         time.sleep(timestep)
+    
+    input('Press any key to exit to main menu')
 
 
     system('cls')  # clears stdout
@@ -81,7 +83,7 @@ def compliments():
     name = input("Please input your name:  ")
     index = random.randint(0,2)
     print(comps[index], name)
-    input()
+    input('Press any key to exit to main menu')
     system('cls')  # clears stdout
 
 

@@ -37,7 +37,7 @@ def calc():
         break
     while True:
         operation = input('please input the operation to be performed (*, /, +, -):  ')
-        if operation == 'x' or operation == '/' or operation == '+' or operation == '-':
+        if operation == '*' or operation == '/' or operation == '+' or operation == '-':
             break
         print('that was not an option, try again')
     while True:
@@ -52,12 +52,12 @@ def calc():
     input('press any key')
     system('cls')  # clears stdout
 
-def fb(i):
-    if i % 3 == 0 and i % 5 == 0:
+def fb(i, j, k):
+    if i % j == 0 and i % k == 0:
         return 'foobar'
-    if i % 3 == 0:
+    if i % j == 0:
         return 'foo'
-    if i % 5 == 0:
+    if i % k == 0:
         return 'bar'
     return i
 
@@ -65,8 +65,10 @@ def foobar():
     print("you have selected foobar") # Simulate function output.
     max = int(input("Enter the number you wish to generate foobar up to:  "))
     timestep = float(input('Enter the number of seconds between each subsequent generation:  '))
+    j = int(input('Enter the number where multiples become foo:  '))
+    k = int(input('Enter the number where multiples become bar:  '))
     for i in range(max):
-        print(fb(i))
+        print(fb(i, j, k))
         time.sleep(timestep)
 
 
@@ -76,7 +78,7 @@ def foobar():
 def compliments():
     comps = ['You have a lovely smile', 'Thats a great hairstyle', 'I wish I was as articulate as you,']
     print("you have selected the compliment generator") # Simulate function output.
-    name = input("Please input your name")
+    name = input("Please input your name:  ")
     index = random.randint(0,2)
     print(comps[index], name)
     input()
